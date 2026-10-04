@@ -1,4 +1,4 @@
-html_content = """<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -199,7 +199,7 @@ html_content = """<!DOCTYPE html>
         <div id="vocab-feedback" class="feedback"></div>
       </div>
       <div class="controls">
-        <button class="btn" onclick="prevCard('vocab')">⬅️ Anterior</button>
+        <button class="btn" onclick="prevCard('vocab')">⬅️️ Anterior</button>
         <span id="vocab-counter">1 / 5</span>
         <button class="btn" onclick="nextCard('vocab')">Siguiente ➡️</button>
       </div>
@@ -261,7 +261,7 @@ html_content = """<!DOCTYPE html>
     const recognition = SpeechRecognition ? new SpeechRecognition() : null;
     const synth = window.speechSynthesis;
 
-    // Pedir permiso de micrófono solo una vez al cargar la página
+    // Solicitar permiso de micrófono
     async function initMicrophone() {
       if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
         try {
@@ -278,7 +278,9 @@ html_content = """<!DOCTYPE html>
       document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
       
       document.getElementById(tabId).classList.add('active');
-      event.target.classList.add('active');
+      if (event && event.target) {
+        event.target.classList.add('active');
+      }
 
       if (tabId === 'conversation' && document.getElementById('chat-container').children.length === 0) {
         initChat();
@@ -422,9 +424,3 @@ html_content = """<!DOCTYPE html>
   </script>
 </body>
 </html>
-"""
-
-with open("index.html", "w", encoding="utf-8") as f:
-    f.write(html_content)
-
-print("Archivo index.html generado directamente para descarga.")
