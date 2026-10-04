@@ -278,8 +278,8 @@
       document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
       
       document.getElementById(tabId).classList.add('active');
-      if (event && event.target) {
-        event.target.classList.add('active');
+      if (window.event && window.event.target) {
+        window.event.target.classList.add('active');
       }
 
       if (tabId === 'conversation' && document.getElementById('chat-container').children.length === 0) {
@@ -401,7 +401,7 @@
 
         setTimeout(() => {
           let botReply = chatBotResponses["default"];
-          const lowerSpeech.toLowerCase();
+          const lowerSpeech = userSpeech.toLowerCase();
 
           for (let key in chatBotResponses) {
             if (lowerSpeech.includes(key) && key !== "default") {
