@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+html_code = """<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -199,7 +199,7 @@
         <div id="vocab-feedback" class="feedback"></div>
       </div>
       <div class="controls">
-        <button class="btn" onclick="prevCard('vocab')">⬅️️ Anterior</button>
+        <button class="btn" onclick="prevCard('vocab')">⬅️ Anterior</button>
         <span id="vocab-counter">1 / 5</span>
         <button class="btn" onclick="nextCard('vocab')">Siguiente ➡️</button>
       </div>
@@ -261,7 +261,7 @@
     const recognition = SpeechRecognition ? new SpeechRecognition() : null;
     const synth = window.speechSynthesis;
 
-    // Solicitar permiso de micrófono
+    // Pedir permiso de micrófono al cargar la página
     async function initMicrophone() {
       if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
         try {
@@ -401,7 +401,7 @@
 
         setTimeout(() => {
           let botReply = chatBotResponses["default"];
-          const lowerSpeech = userSpeech.toLowerCase();
+          const lowerSpeech.toLowerCase();
 
           for (let key in chatBotResponses) {
             if (lowerSpeech.includes(key) && key !== "default") {
@@ -424,3 +424,7 @@
   </script>
 </body>
 </html>
+"""
+
+with open("index.html", "w", encoding="utf-8") as f:
+    f.write(html_code)
